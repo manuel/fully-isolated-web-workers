@@ -1,5 +1,10 @@
 <body>
   <script type="text/javascript">
-    new Worker('data:,console.log("henlo,,")');
+    new Worker(`data:,var request = new XMLHttpRequest();
+request.open('GET', '/buckybox/LICENSE', false);
+request.send(null);
+
+console.log(request.status);
+`);
   </script>
 </body>

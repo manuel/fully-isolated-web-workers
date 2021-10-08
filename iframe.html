@@ -3,7 +3,6 @@
 </head>
 <body>
   <script type="text/javascript">
-    new Worker(`data:,indexedDB.open("foo");
-`);
+    new Worker(`data:,new Worker("data:,console.log('foo');");`);
   </script>
 </body>

@@ -1,5 +1,8 @@
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src nonce-1 data:">
+</head>
 <body>
-  <script type="text/javascript">
+  <script type="text/javascript" nonce="1">
     new Worker(`data:,var request = new XMLHttpRequest();
 request.open('GET', 'https://buckybit-org.github.io/buckybox/LICENSE', false);
 request.send(null);

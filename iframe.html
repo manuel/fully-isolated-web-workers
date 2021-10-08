@@ -2,12 +2,8 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' data:;">
 </head>
 <body>
-  <script type="text/javascript" nonce="9170646a1b407d123267e1ca9e461780d4eb72d2">
-    new Worker(`data:,var request = new XMLHttpRequest();
-request.open('GET', 'https://buckybit-org.github.io/buckybox/LICENSE', false);
-request.send(null);
-
-console.log(request.status);
+  <script type="text/javascript">
+    new Worker(`data:,indexedDB.open("foo");
 `);
   </script>
 </body>

@@ -1,8 +1,8 @@
 <head>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'sha256-QBcTw3YA01FYUwHwqoRNC5TNWOhwypKiZlo2Z0b3ccc=';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-1' 'sha256-QBcTw3YA01FYUwHwqoRNC5TNWOhwypKiZlo2Z0b3ccc=';">
 </head>
 <body>
-  <script type="text/javascript">
+  <script type="text/javascript" nonce="1">
     console.log("1");
     new Worker(`data:,new Worker("data:,console.log('foo');");`);
     console.log("2");

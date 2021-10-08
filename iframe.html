@@ -4,7 +4,7 @@
 <body>
   <script type="text/javascript" nonce="4444">
     console.log("1");
-    new Worker(`data:,console.log("foo");`);
+    new Worker(`data:,console.log(eval("33*33"));`);
     console.log("2");
   </script>
 </body>

@@ -1,10 +1,10 @@
 <head>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-4444' 'sha256-QBcTw3YA01FYUwHwqoRNC5TNWOhwypKiZlo2Z0b3ccc=';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-4444' 'sha256-SojU/IOdT+mEkVVsrIdXHc2+9JVg5VpB90Zl1VlPO2Y=';">
 </head>
 <body>
   <script type="text/javascript" nonce="4444">
     console.log("1");
-    new Worker(`data:,new Worker("data:,console.log('foo');");`);
+    new Worker(`data:,console.log('foo')`);
     console.log("2");
   </script>
 </body>

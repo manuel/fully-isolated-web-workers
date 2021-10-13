@@ -1,10 +1,10 @@
 <head>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-4444'; worker-src data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-1' data:;">
 </head>
 <body>
-  <script type="text/javascript" nonce="4444">
+  <script type="text/javascript" nonce="1">
     console.log("1");
-    new Worker(`data:,console.log(eval("33*33"));`);
+    new Worker(`data:,console.log("foo");`);
     console.log("2");
   </script>
 </body>

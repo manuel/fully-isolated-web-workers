@@ -1,47 +1,17 @@
 <head>
-  <!-- Allow only the main script tag (with a nonce) as well as data URIs.
-       This could probably be further locked down to prevent the workers from
-       launching nested workers by using hashes as script-src. -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-1' data:;">
 </head>
 <body>
   <script type="text/javascript" nonce="1">
-
-    // Trying to access IDB
+    // Try to access IDB
     new Worker("data:,indexedDB.open('foo')");
 
-    // Trying to import script from a CORS-enabled test server.
+    // Try to import script from a CORS-enabled test server.
     // Note that there's not really a script at that resource, but it
-    // doesn't matter the CSP catches it before it gets fetched.
+    // doesn't matter -- the CSP catches it before it gets fetched.
     new Worker("data:,importScripts('https://cors-test.appspot.com/test');");
 
-    // Trying CORS XHR request
-    new Worker(`data:,
-var createCORSRequest = function(method, url) {
-  var xhr = new XMLHttpRequest();
-  if ("withCredentials" in xhr) {
-    xhr.open(method, url, true);
-  } else if (typeof XDomainRequest != "undefined") {
-    xhr = new XDomainRequest();
-    xhr.open(method, url);
-  } else {
-    xhr = null;
-  }
-  return xhr;
-};
-
-var url = 'https://cors-test.appspot.com/test';
-var method = 'GET';
-var xhr = createCORSRequest(method, url);
-
-xhr.onload = function() {
-  console.log("CORS success");
-};
-
-xhr.onerror = function() {
-};
-
-xhr.send();
-`);
+    // Try CORS XHR request
+    new Worker("data:,var xhr = new XMLHttpRequest(); xhr.open('GET', 'https://cors-test.appspot.com/test', true); xhr.send();");
   </script>
 </body>

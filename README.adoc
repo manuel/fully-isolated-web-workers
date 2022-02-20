@@ -1,0 +1,38 @@
+# Fully Isolated Web Worker
+
+This is inspired by the paper
+https://devd.me/papers/LeastPrivileges.pdf[Privilege Separation in
+HTML5 Applications] by Devdatta Akhawe, Prateek Saxena, and Dawn Song
+but addresses a slightly different use case:
+
+We want to run fully isolated web workers -- they should not have any
+network or local storage access.
+
+We reuse the technique from the paper of using a null-origin IFRAME as
+sandbox (to prevent access to same-origin resources like IndexedDB).
+
+Inside the IFRAME, we set a CSP of "default-src 'none'" to prevent
+network access.  We allow a main SCRIPT tag in the IFRAME to run with
+a script-src nonce.  We also allow script-src data URIs to run the web
+workers.
+
+So in this approach, the only untrusted code runs in a web worker.
+The main page and IFRAME are trusted, but could additionally be locked
+down using the techniques from the paper.
+
+## How to run the demo
+
+* Open the file index.html in Chrome or Firefox.
+
+* Check the console for errors.  You should see three different error messages (with messages from Chrome):
+
+** `Failed to execute 'open' on 'IDBFactory'` -- this demonstrates
+   that the worker doesn't have access to local storage.
+
+** `Refused to load the script
+   'https://cors-test.appspot.com/test'` -- this demonstrates that
+   the worker cannot load scripts, even from CORS-enabled servers
+
+** `Refused to connect to 'https://cors-test.appspot.com/test'` --
+   this demonstrates that the worker cannot make XHR requests to
+   CORS-enabled servers.

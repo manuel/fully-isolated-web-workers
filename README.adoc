@@ -1,4 +1,4 @@
-# Fully Isolated Web Worker
+# Fully Isolated Web Workers
 
 This is inspired by the paper
 https://devd.me/papers/LeastPrivileges.pdf[Privilege Separation in

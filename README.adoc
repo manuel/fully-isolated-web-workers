@@ -13,7 +13,7 @@ sandbox (to prevent access to same-origin resources like IndexedDB).
 
 Inside the IFRAME, we set a CSP of "default-src 'none'" to prevent
 network access.  We allow a main SCRIPT tag in the IFRAME to run with
-a script-src nonce.  We also allow script-src data URIs to run the web
+a script-src nonce.  We also allow data: URIs to run the web
 workers.
 
 (Compared to the paper, the only untrusted code runs in a web worker.

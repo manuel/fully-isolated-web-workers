@@ -16,9 +16,9 @@ network access.  We allow a main SCRIPT tag in the IFRAME to run with
 a script-src nonce.  We also allow script-src data URIs to run the web
 workers.
 
-So in this approach, the only untrusted code runs in a web worker.
+(Compared to the paper, the only untrusted code runs in a web worker.
 The main page and IFRAME are trusted, but could additionally be locked
-down using the techniques from the paper.
+down using the techniques described in the paper.)
 
 ## How to run the demo
 

@@ -7,7 +7,7 @@
     new Worker("data:,indexedDB.open('foo')");
 
     // Try to import a script from the own domain.
-    new Worker("data:,importScripts('./test.js');");
+    new Worker("data:,importScripts('test.js');");
 
     // Try to import script from a CORS-enabled test server.
     // Note that there's not really a script at that resource, but it
@@ -15,7 +15,7 @@
     new Worker("data:,importScripts('https://cors-test.appspot.com/test');");
 
     // Try XHR request to own domain
-    new Worker("data:,var xhr = new XMLHttpRequest(); xhr.open('GET', './test', true); xhr.send();");
+    new Worker("data:,var xhr = new XMLHttpRequest(); xhr.open('GET', 'test', true); xhr.send();");
 
     // Try CORS XHR request
     new Worker("data:,var xhr = new XMLHttpRequest(); xhr.open('GET', 'https://cors-test.appspot.com/test', true); xhr.send();");

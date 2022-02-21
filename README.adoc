@@ -40,3 +40,13 @@ down using the techniques described in the paper.)
    
 ** `Refused to connect to 'https://cors-test.appspot.com/test'` --
    the worker can not make XHR requests to CORS-enabled hosts.
+
+## Note
+
+An attacker could bring the browser to load the `iframe.html` outside of the 
+sandbox established by `index.html`, making the workers run not in a null-origin,
+but on the same origin as `index.html`.
+
+To prevent this, the technique from https://devd.me/papers/LeastPrivileges.pdf#page=7[Listing 1]
+of the paper should be used (constructing the IFRAME dynamically with a data: URI).
+I will do this in a future version.

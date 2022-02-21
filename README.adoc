@@ -22,7 +22,7 @@ down using the techniques described in the paper.)
 
 ## How to run the demo
 
-* Open the file index.html in Chrome or Firefox.
+* Open the file https://manuel.github.io/fully-isolated-web-workers/index.html[index.html] in Chrome or Firefox.
 
 * Check the console for errors.  You should see three different error messages (with messages from Chrome):
 

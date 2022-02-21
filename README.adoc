@@ -22,21 +22,21 @@ down using the techniques described in the paper.)
 
 ## How to run the demo
 
-* Open the file https://manuel.github.io/fully-isolated-web-workers/index.html[index.html] in Chrome or Firefox.
+* Go to *https://manuel.github.io/fully-isolated-web-workers/index.html* in Chrome or Firefox.
 
 * Check the console for errors.  You should see the following error messages:
 
-** `Failed to execute 'open' on 'IDBFactory'` -- this demonstrates
-   that the worker *has no access to IndexedDB*.
+** `Failed to execute 'open' on 'IDBFactory'` -- 
+   the worker has no access to IndexedDB.
 
 ** `Refused to load the script 'https://manuel.github.io/test.js'` -- 
-   the worker *can not load scripts from the domain on which the page is hosted*.
+   the worker can not load scripts from the domain on which the page is hosted.
 
 ** `Refused to load the script 'https://cors-test.appspot.com/test'` -- 
-   the worker *can not load scripts from CORS-enabled hosts*.
+   the worker can not load scripts from CORS-enabled hosts.
 
 ** `Refused to connect to 'https://manuel.github.io/test'` --
-   the worker *can not make XHR requests to the domain on which the page is hosted*.
+   the worker can not make XHR requests to the domain on which the page is hosted.
    
 ** `Refused to connect to 'https://cors-test.appspot.com/test'` --
-   the worker *can not make XHR requests to CORS-enabled hosts*.
+   the worker can not make XHR requests to CORS-enabled hosts.
